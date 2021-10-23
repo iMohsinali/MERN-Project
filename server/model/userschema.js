@@ -27,7 +27,7 @@ var userschema=mongoose.Schema({
         type:String,
         required:true
     },
-    token:[{
+    tokens:[{
         token:{
             type:String,
             require:true
@@ -49,20 +49,20 @@ userschema.pre('save', async function(next) {
     this.cpassword=has
     next();
 });
-userschema.methods.generateAuthToken = async function(){
-    try{
-        let token = jwt.sign({_id:this._id},process.env.SECRECT_KEY)
-        this.tokens = this.tokens.concat({token:token})
-          await this.save()
-        return token
-       
-    }
-    catch(err)
-    {
-console.log({err:"something wetn rong"})
-    }
 
-}
+    userschema.methods.generateAuthToken = async function(){
+        try{
+            let token = jwt.sign({_id:this._id},process.env.SECRECT_KEY)
+            this.tokens = this.tokens.concat({token:token})
+              await this.save()
+            return token
+    
+        }
+        catch(err)
+        {
+    console.log({err:"something wetn rong"})
+        }
+    }
 
 const User=mongoose.model('USER',userschema)
 module.exports=User
