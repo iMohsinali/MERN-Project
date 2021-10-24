@@ -1,5 +1,4 @@
 
-import './App.css';
 import {Route} from 'react-router-dom'
 import Navbar from './component/Navbar';
 import Login from './component/Login';
