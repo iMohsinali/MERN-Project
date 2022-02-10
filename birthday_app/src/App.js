@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Data from "./Data";
+import List from "./List";
 
 function App() {
+  const [people, setpeople] = useState(Data);
+  const removepeople = (id) => {
+    const newpeope = people.filter((p) => p.id !== id);
+    setpeople(newpeope);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <section className="container">
+        <h1>Birthday App</h1>
+        <div>
+          {people.map((p) => {
+            return <List key={p.id} {...p} removepeople={removepeople} />;
+          })}
+        </div>
+        <button className="clear-btn" onClick={() => setpeople([])}>
+          {" "}
+          Clear All
+        </button>
+      </section>
+    </main>
   );
 }
 
