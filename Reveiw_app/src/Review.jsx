@@ -1,6 +1,7 @@
 import React from "react";
 import people from "./data";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
 import { useState } from "react";
 export const Review = () => {
   const [index, setindex] = useState(0);
@@ -38,23 +39,28 @@ export const Review = () => {
     setindex(check(newindex));
   };
   return (
-    <article>
-      <div className="image-container">
-        <img src={image} alt={name} className="person-image" />
-      </div>
-      <div className=" btn">
-        <button className="arrow-btn">
-          <IoIosArrowBack onClick={left} />
-        </button>
-        <span>
-          <button className="arrow-btn">
-            <IoIosArrowForward onClick={right} />
-          </button>
+    <article className="review">
+      <div className="img-container">
+        <img src={image} alt={name} className="person-img" />
+        <span className="quote-icon">
+          <FaQuoteRight />
         </span>
       </div>
-      <div className="random" onClick={random}>
-        <button>random</button>
+      <h4 className="author">{name}</h4>
+      <p className="job">{job}</p>
+      <p className="info">{text}</p>
+      <div className="button-container">
+        <button className="prev-btn" onClick={left}>
+          <FaChevronLeft />
+        </button>
+
+        <button className="next-btn" onClick={right}>
+          <FaChevronRight />
+        </button>
       </div>
+      <button className="random-btn" onClick={random}>
+        surprise me
+      </button>
     </article>
   );
 };

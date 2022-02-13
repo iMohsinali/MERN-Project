@@ -3,15 +3,13 @@ import { Review } from "./Review";
 function App() {
   return (
     <main>
-      <section className="App">
-        <div>
-          <h1>Reveiw App</h1>
-          <hr className="underline"></hr>
+      <section className="container">
+        <div className="title">
+          <h2>Reveiw App</h2>
+          <div className="underline"></div>
         </div>
-      </section>
-      <div className="review">
         <Review />
-      </div>
+      </section>
     </main>
   );
 }
