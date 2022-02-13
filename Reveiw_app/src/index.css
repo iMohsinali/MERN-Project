@@ -1,5 +1,6 @@
 body {
   margin: 0;
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +11,64 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App{
+  display: flex;
+  justify-content: center;
+  padding-top: 7rem;
+  margin-bottom: 3rem;
+}
+.underline{
+  margin-top: 0.4rem;
+  padding-top: 0.1rem;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  
+  background-color: aqua;
+}
+.review{
+ 
+  margin: 4rem;
+  padding: 2rem;
+  background-color: gray;
+  border-radius: 0.5rem;
+
+}
+.image-container{
+  display: flex;
+  justify-content: center;
+
+
+}
+
+.person-image{
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+.btn{
+  display: flex;
+  flex-basis: 1;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.random{
+  display: flex;
+justify-content: center;
+  cursor: pointer;
+}
+.arrow-btn{
+  background-color: gray;
+  color: none;
+  cursor: pointer;
+  
+  
 }
