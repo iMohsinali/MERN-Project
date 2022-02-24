@@ -45,6 +45,15 @@ function App() {
             );
           })}
         </article>
+        <div className="employe-name">
+          {duties.map((e, i) => {
+            return (
+              <div key={i} className="job-desc">
+                <p>{company}</p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
