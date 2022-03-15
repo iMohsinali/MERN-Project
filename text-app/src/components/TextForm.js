@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const TextForm = () => {
+const TextForm = (props) => {
   const [text, settext] = useState("");
   console.log(text);
   const Uphandler = () => {
@@ -31,17 +31,12 @@ const TextForm = () => {
     localStorage.setItem("mohe", text);
   };
 
-  //   b.forEach((e, index) => {
-  //     if (e === ".") {
-  //       c.push(index);
-  //     }
-  //   });
-
-  //   console.log(a.charAt(18).toUpperCase());
-
   return (
     <>
-      <div className="container my-3">
+      <div
+        className="container my-3"
+        style={{ color: props.color === "dark" ? "white" : "black" }}
+      >
         <h1>Enter the text to Aanalyze</h1>
         <div className="mb-3">
           <textarea
@@ -50,6 +45,10 @@ const TextForm = () => {
             rows="12"
             value={text || localStorage.getItem("mohe")}
             onChange={changehandler}
+            style={{
+              backgroundColor: props.color === "dark" ? "gray" : "white",
+              color: props.color === "dark" ? "white" : "black",
+            }}
           ></textarea>
         </div>
         <button onClick={Correct} className="btn btn-primary mx-2">
@@ -62,7 +61,10 @@ const TextForm = () => {
           Orginal
         </button>
       </div>
-      <div className="container my-2">
+      <div
+        className="container my-2"
+        style={{ color: props.color === "dark" ? "white" : "black" }}
+      >
         <h1>Your text Summary</h1>
         <p>
           {text.split(" ").length} words and {text.replace(/\s/g, "").length}{" "}

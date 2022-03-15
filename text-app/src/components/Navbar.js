@@ -1,9 +1,7 @@
-import React from "react";
-
-const Navbar = () => {
+const Navbar = ({ color, handle }) => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className={`navbar navbar-expand-lg  navbar-${color} : bg-${color}`}>
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             Navbar
@@ -32,7 +30,7 @@ const Navbar = () => {
                 </a>
               </li>
             </ul>
-            <form className="d-flex">
+            {/* <form className="d-flex">
               <input
                 className="form-control me-2"
                 type="search"
@@ -42,7 +40,22 @@ const Navbar = () => {
               <button className="btn btn-outline-success" type="submit">
                 Search
               </button>
-            </form>
+            </form> */}
+            <div
+              class={`form-check form-switch text-${
+                color === `light` ? `dark` : `light`
+              }`}
+            >
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="flexSwitchCheckDefault"
+                onChange={handle}
+              />
+              <label class="form-check-label" for="flexSwitchCheckDefault">
+                {color === `light` ? `Enable Dark` : `Enalbe light`}
+              </label>
+            </div>
           </div>
         </div>
       </nav>
