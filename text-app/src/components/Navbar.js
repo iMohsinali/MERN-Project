@@ -1,4 +1,4 @@
-const Navbar = ({ color, handle }) => {
+const Navbar = ({ color, handle, showalert }) => {
   return (
     <>
       <nav className={`navbar navbar-expand-lg  navbar-${color} : bg-${color}`}>

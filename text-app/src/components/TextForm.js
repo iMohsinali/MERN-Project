@@ -31,6 +31,10 @@ const TextForm = (props) => {
     localStorage.setItem("mohe", text);
   };
 
+  if (text.replace(/\s/g, "")) {
+    console.log("th");
+  }
+
   return (
     <>
       <div
