@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Alert from "./components/Alert";
+import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 
@@ -29,17 +31,23 @@ const App = () => {
   useEffect(() => {}, []);
 
   return (
-    <div
-      style={{
-        background: color === "dark" ? "gray" : "white",
-        height: "100vh",
-      }}
-      className="my-10"
-    >
-      <Navbar color={color} handle={handle} showalert={setalert} />
-      <Alert alert={alert} />
-      <TextForm color={color} />
-    </div>
+    <BrowserRouter>
+      <div
+        style={{
+          background: color === "dark" ? "gray" : "white",
+          height: "100vh",
+        }}
+        className="my-10"
+      >
+        <Navbar color={color} handle={handle} showalert={setalert} />
+
+        <Alert alert={alert} />
+        <Routes>
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/" element={<TextForm color={color} />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 };
 
