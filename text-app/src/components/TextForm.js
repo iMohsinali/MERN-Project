@@ -71,8 +71,12 @@ const TextForm = (props) => {
       >
         <h1>Your text Summary</h1>
         <p>
-          {text.split(" ").length} words and {text.replace(/\s/g, "").length}{" "}
-          charcters
+          {
+            text.split(" ").filter((e) => {
+              return e.length !== 0;
+            }).length
+          }{" "}
+          words and {text.replace(/\s/g, "").length} charcters
         </p>
         <p>Readin {0.008 * text.split(" ").length.toFixed(2)} Minutes</p>
         <h2>preview</h2>
